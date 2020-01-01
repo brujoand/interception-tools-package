@@ -13,7 +13,7 @@ git_checkout() {
 
 build_project() {
   local project=$1
-  local build_dir = "${project}/build"
+  local build_dir="${project}/build"
 
   git_checkout "$project"
   mkdir "$build_dir"
