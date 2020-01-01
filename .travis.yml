@@ -17,4 +17,5 @@ addons:
       - libboost-all-dev
 
 script:
+  - gem install fpm
   - ./build
