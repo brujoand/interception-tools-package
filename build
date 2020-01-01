@@ -13,9 +13,11 @@ git_checkout() {
 
 build_project() {
   local project=$1
+  local build_dir = "${project}/build"
 
   git_checkout "$project"
-  cd "$project"
+  mkdir "$build_dir"
+  cd "$build_dir"
   cmake ..
   make
 }
