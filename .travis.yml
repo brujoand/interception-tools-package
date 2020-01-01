@@ -1,0 +1,21 @@
+sudo: required
+dist: bionic
+
+language: cpp
+
+addons:
+  apt:
+    packages:
+      - build-essential
+      - cmake
+      - g++
+      - gcc
+      - git
+      - libudev-dev
+      - libevdev-dev
+      - libyaml-cpp-dev
+      - libboost-all-dev
+
+script:
+  - gem install fpm
+  - ./build
