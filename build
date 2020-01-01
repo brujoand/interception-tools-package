@@ -2,8 +2,8 @@
 
 set -e # exit on failures
 
-base_repo='https://gitlab.com/interception/'
-projects=('linux/tools' 'plugins/space2meta' 'plugins/caps2esc' 'plugins/hideaway')
+base_repo='https://gitlab.com/interception/linux'
+projects=('tools' 'plugins/space2meta' 'plugins/caps2esc' 'plugins/hideaway')
 
 git_checkout() {
   local project=$1
