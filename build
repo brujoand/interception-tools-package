@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e # exit on failures
+
+base_repo='https://gitlab.com/interception/'
+projects=('linux/tools' 'plugins/space2meta' 'plugins/caps2esc' 'plugins/hideaway')
+
+git_checkout() {
+  local project=$1
+  local repo="${base_repo}/${project}"
+  git clone  --depth 1 -b master --single-branch "$repo" "$project"
+}
+
+build_project() {
+  local project=$1
+
+  git_checkout "$project"
+  cd "$project"
+  cmake ..
+  make
+}
+
+for project in "${projects[@]}"; do
+  build_project "$project"
+done
