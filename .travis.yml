@@ -8,8 +8,8 @@ addons:
     packages:
       - build-essential
       - cmake
-      - g++
-      - gcc
+      - g++-8
+      - gcc-8
       - git
       - libudev-dev
       - libevdev-dev
