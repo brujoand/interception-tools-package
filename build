@@ -20,9 +20,9 @@ build_project() {
   git_checkout "$project"
   mkdir "$build_dir"
   cd "$build_dir"
-  cmake ..
+  cmake -DCMAKE_INSTALL_PREFIX="$install_dir" -P cmake_install.cmake ..
   make
-  mkdir "$install_dir"
+  mkdir -p "$install_dir"
   make install DESTDIR="$install_dir"
 }
 
