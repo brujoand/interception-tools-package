@@ -4,6 +4,8 @@ set -e # exit on failures
 
 base_repo='https://gitlab.com/interception/linux'
 projects=('tools' 'plugins/space2meta' 'plugins/caps2esc' 'plugins/hideaway')
+package_dir='package'
+install_dir="${package_dir}/usr/local/bin"
 
 git_checkout() {
   local project=$1
@@ -20,8 +22,12 @@ build_project() {
   cd "$build_dir"
   cmake ..
   make
+  mkdir "$install_dir"
+  make install DESTDIR="$install_dir"
 }
 
 for project in "${projects[@]}"; do
   build_project "$project"
 done
+
+tree
